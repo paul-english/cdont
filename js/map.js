@@ -56,3 +56,18 @@ function setMarkers(map, locations) {
     });
   }
 }
+
+
+window.onload = function () {
+    var r = Raphael("holder"),
+        axisy = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        axisx = ["12am", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12pm", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
+    r.g.txtattr.font = "11px 'Fontin Sans', Fontin-Sans, sans-serif";
+    
+    r.g.dotchart(10, 10, 620, 260, xs, ys, data, {symbol: "o", max: 10, heat: true, axis: "0 0 1 1", axisxstep: 23, axisystep: 6, axisxlabels: axisx, axisxtype: " ", axisytype: " ", axisylabels: axisy}).hover(function () {
+        this.tag = this.tag || r.g.tag(this.x, this.y, this.value, 0, this.r + 2).insertBefore(this);
+        this.tag.show();
+    }, function () {
+        this.tag && this.tag.hide();
+    });
+};
