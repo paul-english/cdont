@@ -4,32 +4,33 @@ $(function() {
     $('body').toggleGrid();
   });
 
-  $('#faviconMap a').click(function() {
-    if(!$(this).hasClass('active')) {  
-      $('.faviconMap').slideUp();
-      $('.' + this.id).slideDown();
-      $('#faviconMap a').removeClass('active');
-      $(this).addClass('active');
-    }
-  });
-
   animateFlashMessages();
 
 });
 
-//var socket = new io.Socket(); 
+var socket = new io.Socket('firstleft.net', {port:8001}); 
 
-//socket.on('connect', function(){ 
-//  socket.send('hi!'); 
-//}); 
+socket.connect();
 
-//socket.on('message', function(data){ 
-//  console.log(data); 
-//});
+socket.on('connect', function(){ 
+  //socket.send('hi!'); 
+  //console.log('connected')
+}); 
 
-//socket.on('disconnect', function(){
-//  console.log(arguments);
-//});
+socket.on('message', function(message) { 
+  //console.log(message);
+  var message = JSON.parse(message);
+  //console.log(message);
+  if(message.id === 'glyph') {
+    $('#glyph').html(message.glyph);
+  }
+});
+
+socket.on('disconnect', function(){
+  setTimeout(function() {
+    window.location = window.location;
+  }, 2000);
+});
 
 $.fn.toggleSlide = function() {
 

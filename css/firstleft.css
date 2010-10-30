@@ -1,18 +1,31 @@
 #messages ul { list-style-type: none; }
 
-h1, h2, h3 { text-transform: capitalize; }
+h1, h2, h3, h4, h5, h6 { text-transform: capitalize;padding-right:10px; }
 h1 a { text-decoration:none; }
+h1, h2 { font-size: 20px;white-space:nowrap; }
+h3 { font-size: 30px; }
 
-.inline { display:inline-block; }
+p { font-size: 1.2em;line-height: 1.7em; text-indent:1em; font-family: serif; }
+p:first-letter { font-size: 2em;vertical-align: text-top; }
+
+.block { display:block; }
+.inline-block { display:inline-block; }
+.inline { display:inline; }
 ul.inline { padding-left: 0; }
-.inline li { display:inline-block; margin-right: 5px; }
+ul.inline li { display:inline-block; margin-right: 5px; }
 .clear { width:100%; }
+
+.left { text-align:left; }
+.right { text-align:right; }
+.center { text-align:center; }
+
 
 .hide { display:none; }
 
 /* pad layout */
 
-.half, otherHalf { display:inline-block; margin-right: 24px; }
+.half, .otherHalf { display:inline-block; margin-right: 24px;vertical-align:top; }
+.otherHalf { margin-right: 0; }
 
 .push-1 { margin-left:144px; }
 .push-2 { margin-left:264px; }
@@ -25,10 +38,12 @@ ul.inline { padding-left: 0; }
 .four { width:552px; margin-right:24px; }
 .five { width:696px; }
 
-.half { width:264px; }
-.otherHalf { width:408px; }
+.half { width:408px!important; }
+.otherHalf { width:264px!important; }
 
 .full, h1, h2, h3 { width:696px; }
+
+.top { height:auto;vertical-align: top; }
 
 .grid { background:url('/img/grid-5.png'); width:768px; height:100%; z-index:-9; display:block; position:absolute; left:0; top:0; }
 
@@ -52,8 +67,8 @@ body { padding: 60px 36px 0;width: 696px; }
   .eight { width:264px; }
 
   /* don't support halves on such a small layout */
-  .half { width:264px; }
-  .otherHalf { width:264px; }
+  .half { width:264px!important; }
+  .otherHalf { width:264px!important; }
 
   .full, h1, h2, h3 { width:264px; }
 
@@ -61,6 +76,8 @@ body { padding: 60px 36px 0;width: 696px; }
 
   body { padding: 48px 28px 0; width: 264px; }
   
+  .inline { display:block;white-space:normal; } /* small format doesn't appreciate blocks much */
+
 }
 
 /* desktop layout */
@@ -71,8 +88,8 @@ body { padding: 60px 36px 0;width: 696px; }
   .seven { width: 984px; margin-right: 24px; }
   .eight { width: 1128px; }
 
-  .half { width:552px; }
-  .otherHalf { width:552px; }
+  .half { width:552px!important; }
+  .otherHalf { width:552px!important; }
 
   .full, h1, h2, h3 { width:1128px; }
 
@@ -107,3 +124,16 @@ a.button:active, input[type='submit']:active, button:active { background-image:-
 ul.clean { list-style-type: none; padding-left:0px }
 
 #newsletter, #about, #services, #clients {height:200px;}
+
+/* pictos */
+.pictos { font-weight:normal; font-style:normal; line-height:normal; font-family: 'Pictos', sans-serif; }
+
+#title {  }
+
+/* navigation */
+navigation { line-height: 1.2em; }
+
+.bl { border-left: 1px dotted #ddd; }
+.bt { border-top: 1px dotted #ddd; }
+.br { border-right: 1px dotted #ddd; }
+.bb { border-bottom: 1px dotted #ddd; }
